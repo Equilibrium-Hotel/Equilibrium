@@ -1,5 +1,5 @@
 .single-review{
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .review-content{
@@ -16,4 +16,18 @@
 .btn-leave-review{
     text-align: left;
     margin: 50px;
+}
+
+.single-review:nth-child(odd){
+    background-color: #337ab7;
+    border-radius: 10px;
+}
+
+.review-form div{
+    text-align: left;
+    margin: 10px 0;
+}
+
+.review-form label{
+    text-align: right;
 }
