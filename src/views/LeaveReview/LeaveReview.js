@@ -9,6 +9,12 @@ export default class LeaveReview extends React.Component {
         this.bindEventHandlers();
     }
 
+    componentDidMount() {
+        if(!sessionStorage.getItem('username')){
+            this.context.router.push('/');
+        }
+    }
+
     bindEventHandlers() {
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
@@ -26,6 +32,11 @@ export default class LeaveReview extends React.Component {
         event.preventDefault();
         let date = this.getDate();
         let author = sessionStorage.getItem('username');
+        if(!(this.state.rating && this.state.content)){
+            // TODO : error message for missing data.
+            return;
+        }
+
         postReview(this.onSubmitResponse, this.state.rating, this.state.content, date, author);
     }
 

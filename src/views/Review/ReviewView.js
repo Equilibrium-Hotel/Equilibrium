@@ -22,7 +22,7 @@ export default class ReviewView extends React.Component {
     }
 
     onLoadSuccess(response) {
-        this.setState({reviews: response.reverse()})
+        this.setState({reviews: response.reverse()});
         this.setCurrentPageReviews();
     }
 
