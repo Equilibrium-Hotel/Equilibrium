@@ -14,7 +14,7 @@ export default class Reviews extends React.Component {
                 <h2>Reviews</h2>
                {leaveReview}
                 {this.props.reviews.map(r => {
-                    return <Review key={r._id} rating={r.rating} content={r.content} author={r.author} date={r.date}/>
+                    return <Review key={r._id} rating={r.rating} content={r.content} author={r.showName ? r.author : 'anonymous'} date={r.date}/>
                 })}
             </div>
         )

@@ -5,12 +5,13 @@ function loadReviews(callback) {
         .then(callback);
 }
 
-function postReview(callback, rating, content, date, author) {
+function postReview(callback, rating, content, date, author,showName) {
     let reviewData = JSON.stringify({
         "rating": rating,
         "content": content,
         "date": date,
-        "author": author
+        "author": author,
+        "showName" : showName
     });
 
     leaveReview('appdata', 'Reviews', 'kinvey', reviewData)

@@ -5,7 +5,7 @@ import {postReview} from '../../models/ReviewModel';
 export default class LeaveReview extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {rating: '', content: ''};
+        this.state = {rating: '', content: '',visibleName:true};
         this.bindEventHandlers();
     }
 
@@ -19,6 +19,7 @@ export default class LeaveReview extends React.Component {
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
         this.onSubmitResponse = this.onSubmitResponse.bind(this);
+        this.onCheckBoxChecked = this.onCheckBoxChecked.bind(this);
     }
 
     onChangeHandler(event) {
@@ -26,6 +27,11 @@ export default class LeaveReview extends React.Component {
         let newState = {};
         newState[event.target.name] = event.target.value;
         this.setState(newState);
+    }
+
+    onCheckBoxChecked(event){
+        let state = this.state.visibleName;
+        this.setState({visibleName : !state});
     }
 
     onSubmitHandler(event) {
@@ -37,7 +43,7 @@ export default class LeaveReview extends React.Component {
             return;
         }
 
-        postReview(this.onSubmitResponse, this.state.rating, this.state.content, date, author);
+        postReview(this.onSubmitResponse, this.state.rating, this.state.content, date, author, this.state.visibleName);
     }
 
     onSubmitResponse(response) {
@@ -65,8 +71,10 @@ export default class LeaveReview extends React.Component {
                     rating={this.state.name}
                     content={this.state.content}
                     date={this.state.date}
+                    visibleName={this.state.visibleName}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}
+                    onCheckBoxChecked={this.onCheckBoxChecked}
                 />
             </div>
         );
