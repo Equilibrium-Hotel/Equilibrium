@@ -2,25 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './views/App';
 import './styles/index.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import {browserHistory, Router, Route, IndexRoute} from 'react-router'
-import HomeView from './views/Home/HomeView'
-import ReviewView from './views/Review/ReviewView'
-import LeaveReview from './views/Review/LeaveReview'
-import AboutView from './views/About/AboutView'
-import LoginView from './views/Login/LoginView'
-import RegisterView from './views/Register/RegisterView'
-import BookingView from './views/Booking/BookingView'
-import ContactsView from './views/Contacts/ContactsView'
-import MyReservations from './views/Booking/MyReservations'
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {browserHistory, Router, Route, IndexRoute} from 'react-router';
+import HomeView from './views/Home/HomeView';
+import ReviewView from './views/Review/ReviewView';
+import AboutView from './views/About/AboutView';
+import LoginView from './views/Login/LoginView';
+import RegisterView from './views/Register/RegisterView';
+import BookingView from './views/Booking/BookingView';
+import ContactsView from './views/Contacts/ContactsView';
+import MyReservations from './views/Booking/MyReservations';
 
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={HomeView}/>
             <Route path="reviews" component={ReviewView}/>
-            <Route path="/leave-review" component={LeaveReview}/>
+            <Route path="leave-review" component={LeaveReview}/>
             <Route path="about" component={AboutView}/>
             <Route path="login" component={LoginView}/>
             <Route path="register" component={RegisterView}/>
@@ -30,6 +28,7 @@ ReactDOM.render(
             </Route>
             <Route path="contacts" component={ContactsView}/>
         </Route>
-    </Router>,
+    </Router>
+    ,
     document.getElementById('root')
 );

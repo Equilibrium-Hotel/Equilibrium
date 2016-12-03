@@ -62,5 +62,4 @@ function reservationRequest(data) {
   })
 }
 
-
-export {getReviews, getBookings, reservationRequest};
+export {getReviews, leaveReview, getBookings, reservationRequest};
