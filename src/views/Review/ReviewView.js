@@ -8,26 +8,14 @@ export default class ReviewView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            reviews: [{
-                '_id': 'fake',
-                'rating': 5,
-                'content': 'hallo',
-                'date': '2016-12-03',
-                'author': 'paco'
-            }, {
-                '_id': 'take',
-                'rating': 4,
-                'content': 'mnouu qkata rabota be6e tam',
-                'date': '2016-12-05',
-                'author': 'iveto'
-            }]
+            reviews: []
         };
 
         this.onLoadSuccess = this.onLoadSuccess.bind(this);
     }
 
     onLoadSuccess(response) {
-        // this.setState({reviews: response})
+         this.setState({reviews: response})
     }
 
     componentDidMount() {
@@ -37,7 +25,7 @@ export default class ReviewView extends React.Component {
     render() {
         return (
             <div className="reviews-wrapper">
-                <Reviews reviews={this.state.reviews}/>
+               <Reviews reviews={this.state.reviews} />
             </div>
         )
     }

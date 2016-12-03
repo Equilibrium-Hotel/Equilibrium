@@ -77,4 +77,4 @@ function getInfo() {
 }
 
 
-export {getReviews};
+export {getReviews, leaveReview};
