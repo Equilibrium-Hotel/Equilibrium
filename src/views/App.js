@@ -5,7 +5,7 @@ import {Link} from 'react-router'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <Link to="/" className="btn btn-default" activeClassName="btn btn-default active" onlyActiveOnIndex={true}>Home</Link>
         <Link to="/reviews" className="btn btn-default" activeClassName="btn btn-default active">Reviews</Link>
         <Link to="/about" className="btn btn-default" activeClassName="btn btn-default active">About</Link>
