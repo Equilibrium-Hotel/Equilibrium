@@ -6,6 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import {browserHistory, Router, Route, IndexRoute} from 'react-router';
 import HomeView from './views/Home/HomeView';
 import ReviewView from './views/Review/ReviewView';
+import LeaveReview from './views/LeaveReview/LeaveReview';
 import AboutView from './views/About/AboutView';
 import LoginView from './views/Login/LoginView';
 import RegisterView from './views/Register/RegisterView';
