@@ -1,0 +1,19 @@
+.single-review{
+    margin-bottom: 20px;
+}
+
+.review-content{
+    text-align: left;
+    margin: 5px;
+}
+
+.review-info{
+    text-align: right;
+    border-right: 1px solid #CCC;
+    margin: 5px;
+}
+
+.btn-leave-review{
+    text-align: left;
+    margin: 50px;
+}
