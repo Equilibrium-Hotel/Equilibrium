@@ -15,6 +15,8 @@ function makeAuth(type) {
     }
 }
 
+//TODO: Make the requesters for Post and Get the same for all models
+
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
@@ -41,40 +43,23 @@ function leaveReview(module, uri, auth, data) {
     });
 }
 
-
-//TODO: EDIT
-function post() {
-    $.ajax({
-        method: 'POST',
-        url: 'https://baas.kinvey.com/appdata/kid_ByoF18kmx/Reservations',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            startDate: new Date(2015, 11, 1),
-            endDate: new Date(2015, 11, 2),
-            price: 99
-        }),
-        headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
-    })
-        .then(function (data) {
-            console.dir(data)
-        })
-        .catch(function (err) {
-            console.dir(err)
-        })
+function getBookings(module, uri, auth, date) {
+  const url = baseUrl + module + "/" + appId + "/" + uri+`/?query={"endDate": {"$gt": "${date.getFullYear()}-${date.getMonth()}-${date.getDate()}"}}`;
+  return $.get({
+    url: url,
+    headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
+  })
 }
 
-function getInfo() {
-    $.get({
-        url: 'https://baas.kinvey.com/appdata/kid_ByoF18kmx/Reservations/?query={"startDate":{"$gt" : "2015-11-01", "$lt" : "2016-0-01"}}',
-        headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
-    })
-        .then(function (data) {
-            console.dir(data)
-        })
-        .catch(function (err) {
-            console.dir(err)
-        })
+function reservationRequest(data) {
+
+  return $.ajax({
+    method: 'POST',
+    url: 'https://baas.kinvey.com/appdata/kid_ByoF18kmx/Reservations',
+    contentType: 'application/json',
+    data,
+    headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
+  })
 }
 
-
-export {getReviews, leaveReview};
+export {getReviews, leaveReview, getBookings, reservationRequest};

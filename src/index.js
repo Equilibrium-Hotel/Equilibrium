@@ -12,6 +12,7 @@ import LoginView from './views/Login/LoginView';
 import RegisterView from './views/Register/RegisterView';
 import BookingView from './views/Booking/BookingView';
 import ContactsView from './views/Contacts/ContactsView';
+import MyReservations from './views/Booking/MyReservations';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -22,7 +23,10 @@ ReactDOM.render(
             <Route path="about" component={AboutView}/>
             <Route path="login" component={LoginView}/>
             <Route path="register" component={RegisterView}/>
-            <Route path="booking" component={BookingView}/>
+            <Route path="booking">
+                <IndexRoute component={MyReservations}/>
+                <Route path="reservation" component={BookingView}/>
+            </Route>
             <Route path="contacts" component={ContactsView}/>
         </Route>
     </Router>
