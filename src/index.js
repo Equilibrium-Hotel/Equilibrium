@@ -13,6 +13,7 @@ import RegisterView from './views/Register/RegisterView';
 import BookingView from './views/Booking/BookingView';
 import ContactsView from './views/Contacts/ContactsView';
 import MyReservations from './views/Booking/MyReservations';
+import Logout from './views/Logout/Logout'
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -28,6 +29,7 @@ ReactDOM.render(
                 <Route path="reservation" component={BookingView}/>
             </Route>
             <Route path="contacts" component={ContactsView}/>
+            <Route path="logout" component={Logout}/>
         </Route>
     </Router>
     ,
