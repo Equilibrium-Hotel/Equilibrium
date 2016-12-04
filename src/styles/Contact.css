@@ -1,0 +1,113 @@
+.contacts-wrapper {
+    margin: 50px 0;
+}
+
+.contactus-element div {
+    margin-bottom: 10px;
+}
+
+.contactus-element:hover {
+    cursor: pointer;
+}
+
+.aboutus-background {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s linear;
+}
+
+.envelope-background {
+    background: url('../../public/resources/images/envelope.png') no-repeat center center;
+}
+
+.phone-background {
+    background: url('../../public/resources/images/phone-icon.png') no-repeat center center;
+}
+
+.skype-background {
+    background: url('../../public/resources/images/skype-icon.png') no-repeat center center;
+}
+
+.facebook-background {
+    background: url('../../public/resources/images/facebook-black-icon.png') no-repeat center center;
+}
+
+.icon-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #A3CCFF;
+    margin: auto;
+}
+
+.aboutus-background:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.3s linear;
+    border: 2px solid transparent;
+}
+
+.aboutus-background:hover:after {
+    border: 2px solid #4cb4b8;
+    top: -6px;
+    left: -6px;
+    bottom: -6px;
+    right: -6px;
+}
+
+.contactus-google-map {
+    margin-top: 100px;
+}
+
+.contactus-google-map #map {
+    border-top: none;
+}
+
+.close-email {
+    width: 30px;
+    height: 30px;
+    background: url('../../public/resources/images/red-x-icon.png') no-repeat;
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    z-index: 1000;
+}
+
+.email-form-wrapper {
+    position: fixed;
+    top: 200px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    max-width:640px;
+    background: #808080;
+    background-position: top right;
+    opacity: 0.9;
+    border: 1px solid #000;
+    z-index: 999;
+}
+
+.email-form-wrapper .form-horizontal{
+    margin-top:20px;
+}
+
+.email-form-wrapper .form-group{
+    margin: 0 0 20px 20px;
+}
+
+.email-content > *{
+    display:block;
+}
+
+.success-email-send {
+    text-align: center;
+    display: none;
+}
