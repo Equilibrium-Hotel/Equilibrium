@@ -1,6 +1,7 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
 import {register} from '../../models/UserModel';
+import {Notifier} from '../../utils/Notifier';
 
 export default class RegisterPage extends React.Component {
   constructor(props) {
@@ -39,21 +40,21 @@ export default class RegisterPage extends React.Component {
   }
 
   onSubmitHandler(event) {
+    event.preventDefault();
     function isMailvalid(email) {
       var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return regEx.test(email);
     }
     if (!isMailvalid(this.state.email)) {
-      alert("Please enter valid email.");
+      Notifier.error('', 'Please enter valid email.');
       return;
     }
-    if (this.state.username == '' || this.state.password == '' || this.state.mail == '') {
-      alert("Please fill all required fields.");
+    if (this.state.username === '' || this.state.password === '' || this.state.email === '') {
+      Notifier.error('', "Please fill all required fields.");
       return;
     }
-    event.preventDefault();
     if (this.state.password !== this.state.repeat) {
-      alert("Passwords don't match");
+      Notifier.error('', "Passwords don't match");
       return;
     }
     this.setState({ submitDisabled: true });

@@ -1,6 +1,6 @@
 import * as requester from '../utils/Requester.js';
 import observer from './ObserverModel';
-
+import {Notifier} from '../utils/Notifier';
 
 function saveSession(userInfo) {
     let userAuth = userInfo._kmd.authtoken;
@@ -29,6 +29,7 @@ function login(username, password, callback) {
 
     function loginSuccess(userInfo) {
         saveSession(userInfo);
+        Notifier.success('', 'Successfully logged in!');
         callback(true);
     }
 }
@@ -46,8 +47,7 @@ function register(username, password, email, telephone, callback) {
         .then(registerSuccess);
 
     function registerSuccess(userInfo) {
-        //observer.showSuccess('Successful registration.');
-        alert('Successful registration.');
+        Notifier.success('Your registration was successful!', 'Congrats!');
         saveSession(userInfo);
         callback(true);
     }
@@ -62,6 +62,7 @@ function logout(callback) {
     function logoutSuccess(response) {
         sessionStorage.clear();
         observer.onSessionUpdate();
+        Notifier.success('Successfully logged out!', '');
         callback(true);
     }
 }
