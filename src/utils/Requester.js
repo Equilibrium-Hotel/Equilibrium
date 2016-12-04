@@ -15,8 +15,6 @@ function makeAuth(type) {
     }
 }
 
-//TODO: Make the requesters for Post and Get the same for all models
-
 function get(module, uri, auth) {
     const kinveyLoginUrl = baseUrl + module + "/" + appId + "/" + uri;
     const kinveyAuthHeaders = makeAuth(auth);
@@ -43,6 +41,18 @@ function post(module, uri, data, auth) {
     }
     return $.ajax(request);
 }
+
+function getWithQuery(module, uri, auth, query) {
+  const kinveyUrl = baseUrl + module + "/" + appId + "/" + uri +'/' + query;
+  const kinveyAuthHeaders = makeAuth(auth);
+
+  return $.ajax({
+    method: "GET",
+    url: kinveyUrl,
+    headers: kinveyAuthHeaders
+  });
+}
+
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
@@ -69,23 +79,4 @@ function leaveReview(module, uri, auth, data) {
     });
 }
 
-function getBookings(module, uri, auth, date) {
-  const url = baseUrl + module + "/" + appId + "/" + uri+`/?query={"endDate": {"$gt": "${date.getFullYear()}-${date.getMonth()}-${date.getDate()}"}}`;
-  return $.get({
-    url: url,
-    headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
-  })
-}
-
-function reservationRequest(data) {
-
-  return $.ajax({
-    method: 'POST',
-    url: 'https://baas.kinvey.com/appdata/kid_ByoF18kmx/Reservations',
-    contentType: 'application/json',
-    data,
-    headers: {Authorization: 'Basic Z3Vlc3Q6Z3Vlc3Q='}
-  })
-}
-
-export {get, post, getReviews, leaveReview, getBookings, reservationRequest};
+export {get, post, getReviews, leaveReview, getWithQuery};

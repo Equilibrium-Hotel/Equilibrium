@@ -9,25 +9,39 @@ export default class BookingView extends React.Component {
       formData: {
         startDate:'',
         endDate:''
-      }
+      },
+      submitDisabled: false
     }
     this.onLoadSuccess = this.onLoadSuccess.bind(this)
-    this.onLoadError = this.onLoadError.bind(this)
+    this.onRequestErrorError = this.onRequestErrorError.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.onPostSuccess = this.onPostSuccess.bind(this)
   }
 
-  onLoadError(error) {
+  onRequestErrorError(error) { //TODO: Show error
     console.dir(error)
+    this.setState({submitDisabled: false})
   }
 
   onLoadSuccess(response) {
-    let freeRooms = 10 - response.length
+    let freeRooms = 20 - response.length
     this.setState({freeRooms: freeRooms})
   }
 
+  onPostSuccess(response) {
+    console.dir(response)
+    this.setState({submitDisabled: false})
+    this.context.router.push('/booking');
+  }
+
   componentDidMount() {
-    loadBookings(this.onLoadSuccess, this.onLoadError, new Date());
+    if(sessionStorage.getItem('authToken')) {
+      loadBookings(this.onLoadSuccess, this.onLoadError, new Date());
+    }
+    else {//TODO: Make alert
+      this.context.router.push('/login');
+    }
   }
 
   handleInputChange(event) {
@@ -45,24 +59,23 @@ export default class BookingView extends React.Component {
     }
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
+    event.preventDefault()
+
     let data = { //TODO: get the dates from the state( after validation )
       startDate: new Date(),
-      endDate: new Date(2016,11,4)
-    }
-    reserve(success,error,data)
-
-    function success(data) {
-      console.dir(data)
+      endDate: new Date()
     }
 
-    function error(err) {
-      console.dir(err)
-    }
+    this.setState({ submitDisabled: true });
+
+    reserve(this.onPostSuccess, this.onRequestErrorError, data)
   }
 
   render() {
     if(this.state.freeRooms > 0) { //There are free rooms
+      //TODO: Make room numbers picker (exclude ones that are reserved)
+      //TODO: Make date picker for dates
       return <div>
         <div className="col-md-12">Free rooms: {this.state.freeRooms}</div>
         <ReservationForm
@@ -70,6 +83,7 @@ export default class BookingView extends React.Component {
           endDate={this.state.formData.endDate}
           onChange={this.handleInputChange}
           onSubmit={this.handleFormSubmit}
+          submitDisabled={this.state.submitDisabled}
         />
       </div>
     }
@@ -85,7 +99,9 @@ export default class BookingView extends React.Component {
         <h1>Loading...</h1>
       </div>
     }
-
-
   }
 }
+
+BookingView.contextTypes = {
+  router: React.PropTypes.object
+};
