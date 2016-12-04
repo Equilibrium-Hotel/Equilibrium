@@ -43,6 +43,21 @@ function post(module, uri, data, auth) {
     }
     return $.ajax(request);
 }
+
+function update(module, uri, data, auth) {
+    const kinveyLoginUrl = baseUrl + module + "/" + appId + "/" + uri;
+    const kinveyAuthHeaders = makeAuth(auth);
+
+    let request = {
+        method: "PUT",
+        url: kinveyLoginUrl,
+        headers: kinveyAuthHeaders,
+        data: data
+    };
+
+    return $.ajax(request);
+}
+
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
@@ -88,4 +103,4 @@ function reservationRequest(data) {
   })
 }
 
-export {get, post, getReviews, leaveReview, getBookings, reservationRequest};
+export {get, post, update, getReviews, leaveReview, getBookings, reservationRequest};
