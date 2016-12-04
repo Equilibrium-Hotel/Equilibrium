@@ -9,7 +9,6 @@ function saveSession(userInfo) {
     sessionStorage.setItem('userId', userId);
     let username = userInfo.username;
     sessionStorage.setItem('username', username);
-    sessionStorage.setItem('teamId', userInfo.teamId);
 
     observer.onSessionUpdate();
 }
@@ -41,7 +40,8 @@ function register(username, password, callback) {
         .then(registerSuccess);
 
     function registerSuccess(userInfo) {
-        observer.showSuccess('Successful registration.');
+        //observer.showSuccess('Successful registration.');
+        alert('Successful registration.');
         saveSession(userInfo);
         callback(true);
     }
