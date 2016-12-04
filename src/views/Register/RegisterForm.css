@@ -1,0 +1,16 @@
+#registerHeader{
+    text-align : center;
+    margin:30px;
+    background: darkblue;
+    color: azure;
+}
+
+form {
+    width: 1083px;
+    margin: auto;
+}
+
+.required {
+    display: inline-block;
+    color: red;
+}

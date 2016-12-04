@@ -9,6 +9,10 @@ function saveSession(userInfo) {
     sessionStorage.setItem('userId', userId);
     let username = userInfo.username;
     sessionStorage.setItem('username', username);
+    let userEmail = userInfo.email;
+    sessionStorage.setItem('email', userEmail);
+    let userTelephone = userInfo.telephone;
+    sessionStorage.setItem('telephone', userTelephone);
 
     observer.onSessionUpdate();
 }
@@ -30,10 +34,12 @@ function login(username, password, callback) {
 }
 
 // user/register
-function register(username, password, callback) {
+function register(username, password, email, telephone, callback) {
     let userData = {
         username,
-        password
+        password,
+        email,
+        telephone
     };
 
     requester.post('user', '', userData, 'basic')
