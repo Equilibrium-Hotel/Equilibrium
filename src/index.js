@@ -13,7 +13,7 @@ import RegisterView from './views/Register/RegisterView';
 import BookingView from './views/Booking/BookingView';
 import ContactsView from './views/Contacts/ContactsView';
 import MyReservations from './views/Booking/MyReservations';
-import Logout from './views/Logout/Logout'
+import Logout from './views/Logout/LogoutView'
 
 ReactDOM.render(
     <Router history={browserHistory}>

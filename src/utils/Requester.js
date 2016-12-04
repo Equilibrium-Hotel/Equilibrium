@@ -17,6 +17,32 @@ function makeAuth(type) {
 
 //TODO: Make the requesters for Post and Get the same for all models
 
+function get(module, uri, auth) {
+    const kinveyLoginUrl = baseUrl + module + "/" + appId + "/" + uri;
+    const kinveyAuthHeaders = makeAuth(auth);
+
+    return $.ajax({
+        method: "GET",
+        url: kinveyLoginUrl,
+        headers: kinveyAuthHeaders
+    });
+}
+
+function post(module, uri, data, auth) {
+    const kinveyLoginUrl = baseUrl + module + "/" + appId + "/" + uri;
+    const kinveyAuthHeaders = makeAuth(auth);
+
+    let request = {
+        method: "POST",
+        url: kinveyLoginUrl,
+        headers: kinveyAuthHeaders
+    };
+
+    if (data !== null) {
+        request.data = data;
+    }
+    return $.ajax(request);
+}
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
@@ -62,4 +88,4 @@ function reservationRequest(data) {
   })
 }
 
-export {getReviews, leaveReview, getBookings, reservationRequest};
+export {get, post, getReviews, leaveReview, getBookings, reservationRequest};
