@@ -1,3 +1,6 @@
+form{
+    width: inherit;
+}
 .contacts-wrapper {
     margin: 50px 0;
 }

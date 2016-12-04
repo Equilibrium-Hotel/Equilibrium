@@ -9,7 +9,7 @@ export default class ContactsView extends React.Component {
                 <h2>Contacts:</h2>
                 <div className="row contacts-wrapper">
                     <div className="contactus-element col-sm-3">
-                        <Link to="contacts/email" className="create-email">
+                        <Link to="/contacts/email" className="create-email">
                             <div className="icon-wrapper">
                                 <div className="aboutus-background envelope-background"></div>
                             </div>
