@@ -19,7 +19,7 @@ var Notifier = (function() {
         }, 1000 / 30);
     };
     var config = { /* How long the notification stays visible */
-        default_timeout: 2000,
+        default_timeout: 3500,
         /* container for the notifications */
         container: document.createElement('div'),
         /* container styles for notifications */

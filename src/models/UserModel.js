@@ -1,6 +1,7 @@
 import * as requester from '../utils/Requester.js';
 import observer from './ObserverModel';
 import {Notifier} from '../utils/Notifier';
+import $ from 'jquery';
 
 function saveSession(userInfo) {
     let userAuth = userInfo._kmd.authtoken;
@@ -44,13 +45,21 @@ function register(username, password, email, telephone, callback) {
     };
 
     requester.post('user', '', userData, 'basic')
-        .then(registerSuccess);
+        .then(registerSuccess)
+        .catch(displayError);
 
     function registerSuccess(userInfo) {
         Notifier.success('Your registration was successful!', 'Congrats!');
         saveSession(userInfo);
         callback(true);
     }
+
+}
+
+function displayError(response) {
+    Notifier.error(response.responseJSON.description);
+    $(".form-group :input").attr("disabled", false);
+    $(".btn-default").attr("disabled", false);
 }
 
 // user/logout
