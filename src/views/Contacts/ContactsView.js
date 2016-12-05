@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import '../../styles/Contact.css';
 
 export default class ContactsView extends React.Component {
+    //https://www.npmjs.com/package/kinvey-backend-sdk#email - sending meil
+    //https://github.com/tomchentw/react-google-maps google maps
     render() {
         return (
             <div>
