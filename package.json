@@ -7,9 +7,13 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "google-map-react": "^0.22.0",
     "jquery": "^3.1.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-google-map": "^3.0.1",
+    "react-google-maps": "^6.0.1",
+    "react-helmet": "^3.2.3",
     "react-js-pagination": "^2.0.1",
     "react-router": "^3.0.0"
   },
