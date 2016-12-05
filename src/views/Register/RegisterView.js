@@ -80,7 +80,8 @@ export default class RegisterPage extends React.Component {
     if (sessionStorage.getItem('username')) this.context.router.push('/');
     return (
         <div>
-          <h1 id="registerHeader">Create your Equilibrium Account</h1>
+          <h1>Register</h1>
+          <hr/>
           <RegisterForm
               username={this.state.username}
               password={this.state.password}

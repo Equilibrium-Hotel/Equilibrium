@@ -31,7 +31,7 @@ export default class LoginPage extends React.Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
-        this.setState({ submitDisabled: true });
+        this.setState({ submitDisabled: false });
         login(this.state.username, this.state.password, this.onSubmitResponse);
     }
 
@@ -48,8 +48,9 @@ export default class LoginPage extends React.Component {
     render() {
         return (
             <div>
-              <h1>LOGIN</h1>
-              <LoginForm
+              <h1>Login</h1>
+                <hr/>
+                <LoginForm
                   username={this.state.username}
                   password={this.state.password}
                   submitDisabled={this.state.submitDisabled}

@@ -60,7 +60,7 @@ export default class RegisterForm extends Component {
                         onChange={this.props.onChangeHandler}
                     />
                 </div>
-                <input className="btn btn-default" type="submit" value="Register" disabled={this.props.submitDisabled}/>
+                <input className="btn btn-lg btn-primary btn-block" type="submit" value="Register" disabled={this.props.submitDisabled}/>
             </form>
         );
     }
