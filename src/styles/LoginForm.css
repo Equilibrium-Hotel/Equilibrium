@@ -1,0 +1,20 @@
+.form-control {
+    width: 220px;
+    border-radius: 10px;
+    border-color: dimgrey;
+}
+label{
+    float: left;
+}
+form {
+    width: 300px;
+    border:1px solid grey;
+    margin-left:425px;
+    padding: 15px;
+    background-color: #CCCCCC;
+    border-radius: 10px;
+}
+.form-group {
+    border-radius: 5px;
+    padding: 20px;
+}

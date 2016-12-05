@@ -1,16 +1,43 @@
 import React from 'react';
 
 export default class EmailForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            subject: '',
+            content: ''
+        };
+
+        this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    }
+
+    onChangeHandler(event) {
+        event.preventDefault();
+        let newState = {};
+        newState[event.target.name] = event.target.value;
+        this.setState(newState);
+    }
+
+    onSubmitHandler(event) {
+        event.preventDefault();
+
+        console.dir(this.state)
+        //TODO : send email
+    }
+
     render() {
         return (
-            <form onSubmit={this.props.onSubmitHandler} className="review-form">
+            <form onSubmit={this.onSubmitHandler} className="review-form">
                 <div className="row">
                     <label className="col-xs-4 col-sm-3">Your email:</label>
                     <input
                         className="col-sm-4"
                         type="text"
                         name="email"
-                        value={this.props.email}
+                        value={this.state.email}
+                        onChange={this.onChangeHandler}
                     />
                 </div>
 
@@ -20,8 +47,8 @@ export default class EmailForm extends React.Component {
                         className="col-sm-4"
                         type="text"
                         name="subject"
-                        value={this.props.subject}
-                        onChange={this.props.onChangeHandler}
+                        value={this.state.subject}
+                        onChange={this.onChangeHandler}
                     />
                 </div>
                 <div className="row">
@@ -29,8 +56,8 @@ export default class EmailForm extends React.Component {
                     <textarea
                         className="col-sm-4"
                         name="content"
-                        value={this.props.content}
-                        onChange={this.props.onChangeHandler}
+                        value={this.state.content}
+                        onChange={this.onChangeHandler}
                     />
                 </div>
                 <div className="row">
