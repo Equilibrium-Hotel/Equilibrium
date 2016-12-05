@@ -41,14 +41,7 @@ export default class RegisterPage extends React.Component {
 
   onSubmitHandler(event) {
     event.preventDefault();
-    function isMailvalid(email) {
-      var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return regEx.test(email);
-    }
-    if (!isMailvalid(this.state.email)) {
-      Notifier.error('', 'Please enter valid email.');
-      return;
-    }
+
     if (this.state.username === '' || this.state.password === '' || this.state.email === '') {
       Notifier.error('', "Please fill all required fields.");
       return;
@@ -57,7 +50,19 @@ export default class RegisterPage extends React.Component {
       Notifier.error('', "Passwords don't match");
       return;
     }
-    this.setState({ submitDisabled: true });
+    if (this.state.password.length < 3) {
+      Notifier.error("", "Passwords cannot be shorter than 3 symbols");
+      return;
+    }
+    function isMailValid(email) {
+      var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regEx.test(email);
+    }
+    if (!isMailValid(this.state.email)) {
+      Notifier.error('', 'Please enter valid email.');
+      return;
+    }
+    this.setState({ submitDisabled: false });
     register(this.state.username, this.state.password, this.state.email, this.state.telephone, this.onSubmitResponse);
   }
 
@@ -72,6 +77,7 @@ export default class RegisterPage extends React.Component {
   }
 
   render() {
+    if (sessionStorage.getItem('username')) this.context.router.push('/');
     return (
         <div>
           <h1 id="registerHeader">Create your Equilibrium Account</h1>

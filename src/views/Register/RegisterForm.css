@@ -5,8 +5,8 @@
     color: azure;
 }
 
-form {
-    width: 1083px;
+.form-control {
+    width: 95%;
     margin: auto;
 }
 

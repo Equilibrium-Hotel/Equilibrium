@@ -1,7 +1,6 @@
 import * as requester from '../utils/Requester.js';
 import observer from './ObserverModel';
 import {Notifier} from '../utils/Notifier';
-import $ from 'jquery';
 
 function saveSession(userInfo) {
     let userAuth = userInfo._kmd.authtoken;
@@ -57,9 +56,12 @@ function register(username, password, email, telephone, callback) {
 }
 
 function displayError(response) {
-    Notifier.error(response.responseJSON.description);
-    $(".form-group :input").attr("disabled", false);
-    $(".btn-default").attr("disabled", false);
+    let errorMsg = JSON.stringify(response)
+    if (response.readyState === 0)
+        errorMsg = "Cannot connect due to network error."
+    if (response.responseJSON && response.responseJSON.description)
+        errorMsg = response.responseJSON.description;
+    Notifier.error(errorMsg);
 }
 
 // user/logout
