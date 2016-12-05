@@ -1,32 +1,35 @@
 import React from 'react'
 import {loadBookings, reserve} from '../../models/BookingModel'
 import ReservationForm from './ReservationForm'
+import {Notifier} from '../../utils/Notifier';
 
 export default class BookingView extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      formData: {
-        startDate:'',
-        endDate:''
-      },
-      submitDisabled: false
+      submitDisabled: false,
+      count: -1,
+      freeRooms: []
     }
     this.onLoadSuccess = this.onLoadSuccess.bind(this)
     this.onRequestErrorError = this.onRequestErrorError.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
     this.onPostSuccess = this.onPostSuccess.bind(this)
   }
 
-  onRequestErrorError(error) { //TODO: Show error
-    console.dir(error)
+  onRequestErrorError(error) {
+    Notifier.error('Please check your internet connection.','We could not load your reservations.')
     this.setState({submitDisabled: false})
   }
 
   onLoadSuccess(response) {
-    let freeRooms = 20 - response.length
-    this.setState({freeRooms: freeRooms})
+    let freeRooms = new Set([1,2,3,4,5,6,7,8,9,10])
+    for(let reservation of response) {
+      if(freeRooms.has(Number(reservation.room))) {
+        freeRooms.delete(Number(reservation.room))
+      }
+    }
+    this.setState({freeRooms: Array.from(freeRooms), count: freeRooms.size})
   }
 
   onPostSuccess(response) {
@@ -39,62 +42,35 @@ export default class BookingView extends React.Component {
     if(sessionStorage.getItem('authToken')) {
       loadBookings(this.onLoadSuccess, this.onLoadError, new Date());
     }
-    else {//TODO: Make alert
+    else {
+      Notifier.warning('Please login first.', 'Not authorized')
       this.context.router.push('/login');
     }
   }
 
-  handleInputChange(event) {
-    if(event.target.name === 'startDate') {
-      this.setState({formData: {
-        startDate: event.target.value,
-        endDate: this.state.formData.endDate
-      }})
-    }
-    else if(event.target.name === 'endDate') {
-      this.setState({formData: {
-        startDate: this.state.formData.startDate,
-        endDate: event.target.value
-      }})
-    }
-  }
-
-  handleFormSubmit(event) {
-    event.preventDefault()
-
-    let data = { //TODO: get the dates from the state( after validation )
-      startDate: new Date(),
-      endDate: new Date()
-    }
-
+  handleFormSubmit(data) {
     this.setState({ submitDisabled: true });
 
     reserve(this.onPostSuccess, this.onRequestErrorError, data)
   }
 
   render() {
-    if(this.state.freeRooms > 0) { //There are free rooms
-      //TODO: Make room numbers picker (exclude ones that are reserved)
-      //TODO: Make date picker for dates
+    if(this.state.count > 0) { //There are free rooms
       return <div>
-        <div className="col-md-12">Free rooms: {this.state.freeRooms}</div>
+        <div className="col-md-12">Free rooms: {this.state.count}</div>
         <ReservationForm
-          startDate={this.state.formData.startDate}
-          endDate={this.state.formData.endDate}
-          onChange={this.handleInputChange}
           onSubmit={this.handleFormSubmit}
           submitDisabled={this.state.submitDisabled}
+          freeRooms={this.state.freeRooms}
         />
       </div>
     }
-    else if(this.state.freeRooms <= 0) { //No free rooms
-      //TODO: make a form for checking when there will be free rooms
+    else if(this.state.count === 0) { //No free rooms
       return <div>
         <h1>No free rooms right now! Check later..</h1>
       </div>
     }
     else { //Loading
-      //TODO: make better loading screen used by all views?
       return <div>
         <h1>Loading...</h1>
       </div>

@@ -7,7 +7,12 @@ export default class ReservationsList extends React.Component {
       return (
         <div>
           {this.props.reservations.map(r => {
-            return <ListItem key={r._id} startDate={r.startDate} endDate={r.endDate}/>
+            return <ListItem
+              key={r._id}
+              startDate={r.startDate}
+              endDate={r.endDate}
+              room={r.room}
+            />
           })}
         </div>
       )

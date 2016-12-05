@@ -1,7 +1,10 @@
 import {post, getWithQuery} from '../utils/Requester';
 
 function loadBookings(successCallback, errorCallback, date) {
-  let query = `?query={"endDate": {"$gt": "${date.getFullYear()}-${date.getMonth()}-${date.getDate()}"}}`
+  let month = date.getMonth()+1<10 ? '0'+date.getMonth()+1 : date.getMonth()+1
+  let day = date.getDate()<10 ? '0'+(date.getDate()) : date.getDate()
+  console.log(date.getFullYear()+' '+month+' '+day)
+  let query = `?query={"endDate": {"$gte": "${date.getFullYear()}-${month}-${day}"}}`
   getWithQuery('appdata', 'Reservations', 'kinvey', query)
     .then(successCallback)
     .catch(errorCallback)
