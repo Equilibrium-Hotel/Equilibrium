@@ -10,7 +10,7 @@ export default class ContactsView extends React.Component {
     constructor(props){
         super(props);
 
-        this. state = {
+        this.state = {
             markers: [{
                 position: {
                     lat: 43.284526,
@@ -28,9 +28,6 @@ export default class ContactsView extends React.Component {
 
     handleMapLoad(map) {
         this._mapComponent = map;
-        if (map) {
-            console.log(map.getZoom());
-        }
     }
 
     handleMapClick(event) {

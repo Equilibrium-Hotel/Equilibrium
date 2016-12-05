@@ -7,7 +7,10 @@ export default class EmailForm extends React.Component {
             email: '',
             subject: '',
             content: ''
-        }
+        };
+
+        this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
 
     onChangeHandler(event) {
@@ -19,6 +22,7 @@ export default class EmailForm extends React.Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
+
         console.dir(this.state)
         //TODO : send email
     }
@@ -33,6 +37,7 @@ export default class EmailForm extends React.Component {
                         type="text"
                         name="email"
                         value={this.state.email}
+                        onChange={this.onChangeHandler}
                     />
                 </div>
 
