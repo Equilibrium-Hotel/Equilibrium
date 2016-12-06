@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
+#welcome-heading {
+    font-family: 'Julius Sans One', serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+#welcome-heading span {
+    font-size: 2.2em;
+}
+
+#welcome-text {
+    font-family: 'Julius Sans One', serif;
+    font-size: 1em;
+    padding: 3% 15% 0 15%;
+    text-align: center;
+}
+
+.carousel {
+    height: 70vh;
+    width: 100vw;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+#services {
+    padding: 3% 15% 3% 15%;
+}
+
+.service img{
+    width: 40%;
+    position: relative;
+    margin: auto;
+}
+
+.serviceText {
+    padding-top: 5%;
+    font-family: Lato;
+    font-size: 1em;
+    text-align: center;
+}
+
+#services-heading {
+    font-family: 'Julius Sans One', serif;
+    font-size: 2em;
+    text-align: center;
+    padding: 3% 25% 0 25%;
+}
+
+footer {
+    background: #f0f0f0;
+    color: #999;
+    text-align: center;
+    font-size: 0.8em;
+    line-height: 4;
+}

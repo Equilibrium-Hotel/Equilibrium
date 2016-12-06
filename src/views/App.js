@@ -60,6 +60,8 @@ class App extends Component {
               </Header>
                 {this.props.children}
               <Infobox/>
+                <Footer>
+                </Footer>
             </div>
         )
     }
