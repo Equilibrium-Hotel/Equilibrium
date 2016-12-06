@@ -16,7 +16,7 @@ export default class ListItem extends React.Component {
     }
   }
 
-  render() {//TODO: Make buttons work..?
+  render() {
     let linkHref = 'booking/reservation/'+this.props.id
     return (
       <div className="single-review row">

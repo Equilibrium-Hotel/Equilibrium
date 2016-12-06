@@ -28,8 +28,10 @@ ReactDOM.render(
             <Route path="register" component={RegisterView}/>
             <Route path="booking">
                 <IndexRoute component={MyReservations}/>
-                <Route path="reservation" component={BookingView}/>
-                <Route path="reservation/:id" component={EditReservation}/>
+                <Route path="reservation">
+                    <IndexRoute component={BookingView}/>
+                    <Route path=":id" component={EditReservation}/>
+                </Route>
             </Route>
             <Route path="contacts" component={ContactsView}>
                 <Route path="email" component={EmailForm}/>
