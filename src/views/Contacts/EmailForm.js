@@ -1,4 +1,6 @@
 import React from 'react';
+import { post } from '../../utils/Requester';
+import { Notifier } from '../../utils/Notifier';
 
 export default class EmailForm extends React.Component {
     constructor(props) {
@@ -32,13 +34,18 @@ export default class EmailForm extends React.Component {
         if (!content || content.length < 10 || !emailReg.test(email)) {
             this.setState({
                 errorMessage: 'Email should be valid and content should be at least 10 characters!'
-            })
+            });
+            return;
         }else {
             this.setState({
                 errorMessage: ''
             })
         }
 
+        let data ={email:email, subject:subject, content:content};
+        post('appdata', 'Emails', data, 'kinvey');
+        Notifier.success('Email send', 'Success');
+        this.context.router.push('/contacts');
     }
 
     closeForm() {

@@ -1,11 +1,12 @@
 import React from 'react';
 import LeaveReviewForm from './LeaveReviewForm';
 import {postReview} from '../../models/ReviewModel';
+import { Notifier } from '../../utils/Notifier';
 
 export default class LeaveReview extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {rating: '', content: '',visibleName:true};
+        this.state = {rating: 5, content: '',visibleName:true};
         this.bindEventHandlers();
     }
 
@@ -55,8 +56,9 @@ export default class LeaveReview extends React.Component {
     onSubmitResponse(response) {
         if (response === true) {
             this.context.router.push('/reviews');
+            Notifier.success('Review is posted', 'Success')
         } else {
-            // TODO : some error msg or catch global ajax error
+            Notifier.success('Something goes wrong try again later', 'Error')
         }
     }
 
