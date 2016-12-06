@@ -1,7 +1,23 @@
 import React from 'react';
+import {Link} from 'react-router'
 
 export default class ListItem extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.onCancelButtonClicked = this.onCancelButtonClicked.bind(this)
+  }
+
+  onCancelButtonClicked() {
+    let sure = confirm("Are you sure you want to delete your reservation?")
+
+    if(sure) {
+      this.props.cancel(this.props.id)
+    }
+  }
+
   render() {//TODO: Make buttons work..?
+    let linkHref = 'booking/reservation/'+this.props.id
     return (
       <div className="single-review row">
         <div className="col-sm-5 col-xs-5 review-info">
@@ -10,8 +26,8 @@ export default class ListItem extends React.Component {
           <div className="review-date"><i>RoomNumber {this.props.room}</i></div>
         </div>
         <div className="col-sm-5 col-xs-6 review-content">
-          <button className="btn btn-default">Edit</button>
-          <button className="btn btn-default">Cancel Reservation</button>
+          <Link to={linkHref} className="btn btn-default">Edit</Link>
+          <button className="btn btn-default" onClick={this.onCancelButtonClicked}>Cancel Reservation</button>
         </div>
       </div>
     )

@@ -9,9 +9,11 @@ export default class ReservationsList extends React.Component {
           {this.props.reservations.map(r => {
             return <ListItem
               key={r._id}
+              id={r._id}
               startDate={r.startDate}
               endDate={r.endDate}
               room={r.room}
+              cancel={this.props.handleCancel}
             />
           })}
         </div>

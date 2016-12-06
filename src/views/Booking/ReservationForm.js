@@ -7,7 +7,10 @@ import {validateReservationForm} from '../../utils/Validator'
 export default class ReservationForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {startDate: moment(), endDate: moment(), selected: props.freeRooms[0].toString(),
+    this.state = {
+      startDate: moment(),
+      endDate: moment(),
+      selected: props.selected || props.freeRooms[0].toString(),
       startInputFeedback: {className: '', message:''},
       roomInputFeedback: {className: '', message:''}
     }
