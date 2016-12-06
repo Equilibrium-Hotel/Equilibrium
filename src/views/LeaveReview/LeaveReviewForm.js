@@ -24,6 +24,7 @@ export default class LeaveReviewForm extends React.Component {
                 <div className="row">
                     <label className="col-sm-3">Rating:</label>
                     <input
+                        defaultValue={5}
                         className="col-sm-4"
                         type="number"
                         name="rating"
@@ -36,6 +37,7 @@ export default class LeaveReviewForm extends React.Component {
                 <div className="row">
                     <label className="col-sm-3">Review:</label>
                     <textarea
+                        rows="5"
                         className="col-sm-4"
                         name="content"
                         value={this.props.content}
@@ -43,6 +45,7 @@ export default class LeaveReviewForm extends React.Component {
                     />
                 </div>
                 <input className="btn btn-default" type="submit" value="Submit"/>
+                {this.props.errorMessage && <div className="error-message">{this.props.errorMessage}</div>}
             </form>
         );
     }

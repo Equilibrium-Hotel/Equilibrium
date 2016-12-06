@@ -31,3 +31,15 @@
 .review-form label{
     text-align: right;
 }
+
+.review-form{
+    display: block;
+}
+
+.review-form .error-message{
+    text-align: center;
+    padding: 10px;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 5px;
+}

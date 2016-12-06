@@ -38,9 +38,15 @@ export default class LeaveReview extends React.Component {
         event.preventDefault();
         let date = this.getDate();
         let author = sessionStorage.getItem('username');
-        if(!(this.state.rating && this.state.content)){
-            // TODO : error message for missing data.
+        if(!(this.state.content) || this.state.content.length < 10){
+            this.setState({
+                errorMessage:"Review content should be at least 10 character"
+            });
             return;
+        } else {
+            this.setState({
+                errorMessage:""
+            });
         }
 
         postReview(this.onSubmitResponse, this.state.rating, this.state.content, date, author, this.state.visibleName);
@@ -72,6 +78,7 @@ export default class LeaveReview extends React.Component {
                     content={this.state.content}
                     date={this.state.date}
                     visibleName={this.state.visibleName}
+                    errorMessage={this.state.errorMessage}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}
                     onCheckBoxChecked={this.onCheckBoxChecked}

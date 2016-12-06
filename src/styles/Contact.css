@@ -66,14 +66,6 @@ form{
     right: -6px;
 }
 
-.contactus-google-map {
-    margin-top: 100px;
-}
-
-.contactus-google-map #map {
-    border-top: none;
-}
-
 .close-email {
     width: 30px;
     height: 30px;
@@ -98,10 +90,6 @@ form{
     z-index: 999;
 }
 
-.email-form-wrapper .form-horizontal{
-    margin-top:20px;
-}
-
 .email-form-wrapper .form-group{
     margin: 0 0 20px 20px;
 }
@@ -113,4 +101,13 @@ form{
 .success-email-send {
     text-align: center;
     display: none;
+}
+
+.error-message{
+    color: black;
+    text-align: center;
+    padding: 10px;
+    background-color: red;
+    border: 1px solid black;
+    border-radius: 5px;
 }
