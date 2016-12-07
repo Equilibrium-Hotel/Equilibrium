@@ -46,6 +46,7 @@ export default class LoginPage extends React.Component {
     }
 
     render() {
+        if (sessionStorage.getItem('username')) this.context.router.push('/');
         return (
             <div className="row">
               <h1 className="title-page col-xs-12">Login</h1>
