@@ -48,8 +48,7 @@ export default class LoginPage extends React.Component {
     render() {
         return (
             <div>
-              <h1>Login</h1>
-                <hr/>
+              <h1 className="title-page">Login</h1>
                 <LoginForm
                   username={this.state.username}
                   password={this.state.password}

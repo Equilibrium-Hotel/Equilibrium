@@ -1,8 +1,22 @@
+form {
+    background: linear-gradient(rgb(200,200,255),rgb(250,250,250));
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 5px #cccccc;
+    color: #333333;
+}
+
 .form-control {
-    border: 1px solid #bbbbbb;
+    border: 1px solid #dddddd;
     border-radius: 0;
 }
 
+input.btn {
+    background: #286090;
+    color: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 5px #cccccc;
+}
 .title-page {
     font-family: 'Julius Sans One', serif;
     font-size: 2.5em;
