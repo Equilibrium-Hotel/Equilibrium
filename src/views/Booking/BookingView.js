@@ -56,7 +56,7 @@ export default class BookingView extends React.Component {
   render() {
     if(this.state.count > 0) { //There are free rooms
       return <div className="row">
-        <div className="col-md-12">Free rooms: {this.state.count}</div>
+        <div className="free-rooms col-md-12">Free rooms: {this.state.count}</div>
         <ReservationForm
           onSubmit={this.handleFormSubmit}
           submitDisabled={this.state.submitDisabled}
