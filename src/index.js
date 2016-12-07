@@ -14,7 +14,8 @@ import BookingView from './views/Booking/BookingView';
 import ContactsView from './views/Contacts/ContactsView';
 import EmailForm from './views/Contacts/EmailForm';
 import MyReservations from './views/Booking/MyReservations';
-import Logout from './views/Logout/LogoutView'
+import Logout from './views/Logout/LogoutView';
+import EditReservation from './views/Booking/EditReservation';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -27,7 +28,10 @@ ReactDOM.render(
             <Route path="register" component={RegisterView}/>
             <Route path="booking">
                 <IndexRoute component={MyReservations}/>
-                <Route path="reservation" component={BookingView}/>
+                <Route path="reservation">
+                    <IndexRoute component={BookingView}/>
+                    <Route path=":id" component={EditReservation}/>
+                </Route>
             </Route>
             <Route path="contacts" component={ContactsView}>
                 <Route path="email" component={EmailForm}/>

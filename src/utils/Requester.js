@@ -53,6 +53,29 @@ function getWithQuery(module, uri, auth, query) {
   });
 }
 
+function del(module, uri, id, auth) {
+  const kinveyUrl = baseUrl + module + "/" + appId + "/" + uri+'/'+id;
+  const kinveyAuthHeaders = makeAuth(auth);
+
+  return $.ajax({
+    method: "DELETE",
+    url: kinveyUrl,
+    headers: kinveyAuthHeaders
+  });
+}
+
+function put(module, uri, id, data, auth) {
+  const kinveyUrl = baseUrl + module + "/" + appId + "/" + uri+'/'+id;
+  const kinveyAuthHeaders = makeAuth(auth);
+
+  return $.ajax({
+    method: "PUT",
+    url: kinveyUrl,
+    headers: kinveyAuthHeaders,
+    data: data
+  });
+}
+
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
@@ -79,4 +102,4 @@ function leaveReview(module, uri, auth, data) {
     });
 }
 
-export {get, post, getReviews, leaveReview, getWithQuery};
+export {get, post, getReviews, leaveReview, getWithQuery, del, put};

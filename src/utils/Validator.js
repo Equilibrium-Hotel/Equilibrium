@@ -17,7 +17,7 @@ function validateReservationForm(startDate, endDate, room) {
 
   let obj = {startDate: startStr, endDate: endStr, room}
 
-  if(obj.startDate > obj.endDate || obj.room.length !== 1) {
+  if(obj.startDate > obj.endDate) {
     return false
   }
   else {

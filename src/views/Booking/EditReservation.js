@@ -1,9 +1,9 @@
 import React from 'react'
-import {loadBookings, reserve} from '../../models/BookingModel'
+import {loadBookings, editReservation} from '../../models/BookingModel'
 import ReservationForm from './ReservationForm'
 import {Notifier} from '../../utils/Notifier';
 
-export default class BookingView extends React.Component {
+export default class EditReservation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,7 +14,7 @@ export default class BookingView extends React.Component {
     this.onLoadSuccess = this.onLoadSuccess.bind(this)
     this.onRequestError = this.onRequestError.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
-    this.onPostSuccess = this.onPostSuccess.bind(this)
+    this.onEditSuccess = this.onEditSuccess.bind(this)
   }
 
   onRequestError() {
@@ -25,15 +25,16 @@ export default class BookingView extends React.Component {
   onLoadSuccess(response) {
     let freeRooms = new Set([1,2,3,4,5,6,7,8,9,10])
     for(let reservation of response) {
-      if(freeRooms.has(Number(reservation.room))) {
+      if(freeRooms.has(Number(reservation.room)) && reservation._id!==this.props.params.id) {
         freeRooms.delete(Number(reservation.room))
       }
     }
     this.setState({freeRooms: Array.from(freeRooms), count: freeRooms.size})
   }
 
-  onPostSuccess() {
+  onEditSuccess() {
     this.setState({submitDisabled: false})
+    Notifier.success("", "Edit successful")
     this.context.router.push('/booking');
   }
 
@@ -50,7 +51,7 @@ export default class BookingView extends React.Component {
   handleFormSubmit(data) {
     this.setState({ submitDisabled: true });
 
-    reserve(this.onPostSuccess, this.onRequestError, data)
+    editReservation(this.onEditSuccess, this.onRequestError, this.props.params.id, data)
   }
 
   render() {
@@ -77,6 +78,6 @@ export default class BookingView extends React.Component {
   }
 }
 
-BookingView.contextTypes = {
+EditReservation.contextTypes = {
   router: React.PropTypes.object
 };

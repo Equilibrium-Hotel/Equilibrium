@@ -1,11 +1,12 @@
 import React from 'react';
 import LeaveReviewForm from './LeaveReviewForm';
 import {postReview} from '../../models/ReviewModel';
+import { Notifier } from '../../utils/Notifier';
 
 export default class LeaveReview extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {rating: '', content: '',visibleName:true};
+        this.state = {rating: 5, content: '',visibleName:true};
         this.bindEventHandlers();
     }
 
@@ -38,9 +39,15 @@ export default class LeaveReview extends React.Component {
         event.preventDefault();
         let date = this.getDate();
         let author = sessionStorage.getItem('username');
-        if(!(this.state.rating && this.state.content)){
-            // TODO : error message for missing data.
+        if(!(this.state.content) || this.state.content.length < 10){
+            this.setState({
+                errorMessage:"Review content should be at least 10 character"
+            });
             return;
+        } else {
+            this.setState({
+                errorMessage:""
+            });
         }
 
         postReview(this.onSubmitResponse, this.state.rating, this.state.content, date, author, this.state.visibleName);
@@ -49,8 +56,9 @@ export default class LeaveReview extends React.Component {
     onSubmitResponse(response) {
         if (response === true) {
             this.context.router.push('/reviews');
+            Notifier.success('Review is posted', 'Success')
         } else {
-            // TODO : some error msg or catch global ajax error
+            Notifier.success('Something goes wrong try again later', 'Error')
         }
     }
 
@@ -72,6 +80,7 @@ export default class LeaveReview extends React.Component {
                     content={this.state.content}
                     date={this.state.date}
                     visibleName={this.state.visibleName}
+                    errorMessage={this.state.errorMessage}
                     onChangeHandler={this.onChangeHandler}
                     onSubmitHandler={this.onSubmitHandler}
                     onCheckBoxChecked={this.onCheckBoxChecked}
