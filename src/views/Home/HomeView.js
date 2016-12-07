@@ -13,7 +13,7 @@ export default class HomeView extends React.Component {
 
         <div className="carousel-inner" role="listbox">
           <div className="item active">
-            <img src={require("../../images/pool.jpeg")} alt="Pool" className="img-responsive"/>
+            <img src={require("../../images/hallway.jpeg")} alt="Pool" className="img-responsive"/>
           </div>
 
           <div className="item">
@@ -21,7 +21,7 @@ export default class HomeView extends React.Component {
           </div>
 
           <div className="item">
-            <img src={require("../../images/hallway.jpeg")} alt="Room" className="img-responsive"/>
+            <img src={require("../../images/pool.jpeg")} alt="Room" className="img-responsive"/>
           </div>
         </div>
 
