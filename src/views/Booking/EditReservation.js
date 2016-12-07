@@ -58,11 +58,13 @@ export default class EditReservation extends React.Component {
     if(this.state.count > 0) { //There are free rooms
       return <div>
         <div className="col-md-12">Free rooms: {this.state.count}</div>
-        <ReservationForm
-          onSubmit={this.handleFormSubmit}
-          submitDisabled={this.state.submitDisabled}
-          freeRooms={this.state.freeRooms}
-        />
+        <div className="row">
+          <ReservationForm
+            onSubmit={this.handleFormSubmit}
+            submitDisabled={this.state.submitDisabled}
+            freeRooms={this.state.freeRooms}
+          />
+        </div>
       </div>
     }
     else if(this.state.count === 0) { //No free rooms

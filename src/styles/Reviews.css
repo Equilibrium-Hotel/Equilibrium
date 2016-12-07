@@ -56,3 +56,23 @@ textarea {
     border: 1px solid black;
     border-radius: 5px;
 }
+
+.single-reservation {
+    padding: 2%;
+}
+
+.edit-delete-btn {
+    font-family: 'Julius Sans One', serif;
+    border-radius: 0 !important;
+    border: 1px solid #d7d7d7 !important;
+    margin:5px;
+}
+
+.single-reservation:nth-child(odd){
+    /*background-color: #337ab7;*/
+    background: linear-gradient(to right, rgb(250,250,250), rgb(200,200,255),rgb(250,250,250));
+}
+
+.reservation-info {
+    font-family: Lato;
+}

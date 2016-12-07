@@ -5,7 +5,7 @@ export default class ReservationsList extends React.Component {
   render() {
     if(this.props.reservations.length>0) {
       return (
-        <div>
+        <div className="col-md-8 col-md-offset-2">
           {this.props.reservations.map(r => {
             return <ListItem
               key={r._id}
