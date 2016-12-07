@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Picture from './Picture';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../../styles/About.css'
