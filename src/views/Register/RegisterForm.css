@@ -1,10 +1,14 @@
-
 .form-control {
-    width: 95%;
-    margin: auto;
+    border: 1px solid #bbbbbb;
+    border-radius: 0;
+}
+
+.title-page {
+    font-family: 'Julius Sans One', serif;
+    font-size: 2.5em;
 }
 
 .required {
     display: inline-block;
-    color: red;
+    color: #47abff;
 }

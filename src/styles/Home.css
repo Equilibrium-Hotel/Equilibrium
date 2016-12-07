@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 
+.container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
 #welcome-heading {
     font-family: 'Julius Sans One', serif;
     font-size: 2em;
@@ -19,7 +25,11 @@
 
 .carousel {
     height: 70vh;
-    width: 100vw;
+    position: relative;
+}
+
+.row {
+    margin: 0 !important;
 }
 
 .carousel-inner {
@@ -36,11 +46,15 @@
     margin: auto;
 }
 
-.serviceText {
+.service-text {
     padding-top: 5%;
     font-family: Lato;
     font-size: 1em;
     text-align: center;
+}
+
+.service-text>a, .service-text>a:hover {
+    color: black;
 }
 
 #services-heading {
@@ -48,12 +62,4 @@
     font-size: 2em;
     text-align: center;
     padding: 3% 25% 0 25%;
-}
-
-footer {
-    background: #f0f0f0;
-    color: #999;
-    text-align: center;
-    font-size: 0.8em;
-    line-height: 4;
 }

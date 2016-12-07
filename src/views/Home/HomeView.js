@@ -40,15 +40,15 @@ export default class HomeView extends React.Component {
       <div className="row" id="services">
         <div className="service col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <img className="img-responsive" src={require("../../images/profile.png")} alt=""/>
-            <p className="serviceText">CREATE YOUR PROFILE</p>
+            <p className="service-text"><a href="/register">CREATE YOUR PROFILE</a></p>
         </div>
         <div className="service col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <img className="img-responsive" src={require("../../images/booking.png")} alt=""/>
-            <p className="serviceText">BOOK A ROOM</p>
+            <p className="service-text"><a href="/booking">BOOK A ROOM</a></p>
         </div>
         <div className="service col-xs-12 col-sm-4 col-md-4 col-lg-4">
           <img className="img-responsive" src={require("../../images/manage.png")} alt=""/>
-            <p className="serviceText">MANAGE AND REVIEW YOUR BOOKINGS</p>
+            <p className="service-text"><a href="/booking">MANAGE AND REVIEW YOUR BOOKINGS</a></p>
         </div>
       </div>
 

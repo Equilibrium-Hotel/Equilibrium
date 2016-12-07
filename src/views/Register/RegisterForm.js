@@ -7,6 +7,7 @@ export default class RegisterForm extends Component {
             <form onSubmit={this.props.onSubmitHandler}>
                 <div className="form-group">
                     <label>Username: <div className="required">*</div></label>
+                    <br/>
                     <input
                         className="form-control"
                         type="text"

@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+
+.controls>div>.btn-default, .controls>div>.btn {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.controls>div>.btn-default:hover, .controls>div>.btn:hover {
+  background: #fafafa;
+}
+
+.controls>div>.btn-default:active, .controls>div>.btn:active {
+  box-shadow:  inset  0 5px 5px -5px  rgba(0, 0, 0, .5);
+}
+
+.controls>div>.btn-default.active, .controls>div>.btn.active {
+  background: transparent;
+  box-shadow: inset  0 5px 5px -5px  rgba(0, 0, 0, .25);
+}
+
+#logo-text {
+  font-family: 'Julius Sans One', serif;
+  font-size: 1em;
+  position: relative;
+  text-align: center;
+  padding-top: 5px;
 }
 
 footer{

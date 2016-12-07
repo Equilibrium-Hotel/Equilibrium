@@ -80,8 +80,7 @@ export default class RegisterPage extends React.Component {
     if (sessionStorage.getItem('username')) this.context.router.push('/');
     return (
         <div>
-          <h1>Register</h1>
-          <hr/>
+          <h1 className="title-page">Register</h1>
           <RegisterForm
               username={this.state.username}
               password={this.state.password}
