@@ -1,7 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=6100585B
-eax=00000000 ebx=19001A10 ecx=75732E09 edx=00000001 esi=00000000 edi=00000000
-ebp=00000000 esp=0093CD74 program=C:\Users\Ivelina\AppData\Local\GitHub\PortableGit_d7effa1a4a322478cd29c826b52a0c118ad3db11\usr\bin\sh.exe, pid 1368, thread unknown (0xDD0)
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-End of stack trace
