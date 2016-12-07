@@ -6,7 +6,7 @@ export default class Reviews extends React.Component {
     render() {
         let leaveReview = null;
         if (sessionStorage.getItem('username')) {
-            leaveReview = <Link to="/leave-review" className="btn btn-primary">Leave a review</Link>
+            leaveReview = <Link to="/leave-review" className="btn edit-delete-btn">Leave a review</Link>
         }
 
         return (
