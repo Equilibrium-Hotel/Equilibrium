@@ -4,6 +4,7 @@ import {loadMyReservations, cancelReservation} from '../../models/BookingModel'
 import ReservationsList from './ReservationsList'
 import {Notifier} from '../../utils/Notifier';
 
+
 export default class MyReservations extends React.Component {
   constructor(props) {
     super(props)
@@ -52,10 +53,12 @@ export default class MyReservations extends React.Component {
       return <div>
         <Link to="booking/reservation" className="btn btn-default" activeClassName="btn btn-default active">Make a new reservation</Link>
         <h1 className="title-page col-xs-12">My Reservations</h1>
-        <ReservationsList
-          reservations={this.state.reservations.sort((x,y) => x.endDate < y.endDate)}
-          handleCancel={this.handleCancel}
-        />
+        <div className="row">
+          <ReservationsList
+            reservations={this.state.reservations.sort((x,y) => x.endDate < y.endDate)}
+            handleCancel={this.handleCancel}
+          />
+        </div>
       </div>
     }
     else {
