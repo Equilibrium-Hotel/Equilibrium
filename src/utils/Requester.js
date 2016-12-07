@@ -79,7 +79,7 @@ function put(module, uri, id, data, auth) {
 //reviews requests
 function getReviews(module, uri, auth) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
-    const headers = makeAuth(auth);
+    //const headers = makeAuth(auth);
 
     return $.ajax({
         method: "GET",
@@ -91,7 +91,7 @@ function getReviews(module, uri, auth) {
 
 function leaveReview(module, uri, auth, data) {
     const url = baseUrl + module + "/" + appId + "/" + uri;
-    const headers = makeAuth(auth);
+    //const headers = makeAuth(auth);
 
     return $.ajax({
         method: "POST",
