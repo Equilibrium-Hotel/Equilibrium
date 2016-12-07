@@ -55,11 +55,11 @@ export default class EmailForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.onSubmitHandler} className="email-form-wrapper">
-                <div className="close-email" onClick={this.closeForm}></div>
+                <span className="close-email glyphicon glyphicon-remove" onClick={this.closeForm}></span>
                 <div className="row form-group">
                     <label className="col-xs-4 col-sm-3">Your email:</label>
                     <input
-                        className="col-sm-4"
+                        className="col-sm-7"
                         type="email"
                         name="email"
 
@@ -72,7 +72,7 @@ export default class EmailForm extends React.Component {
                 <div className="row form-group">
                     <label className="col-xs-4 col-sm-3">Subject:</label>
                     <input
-                        className="col-sm-4"
+                        className="col-sm-7"
                         type="text"
                         name="subject"
                         value={this.state.subject}
@@ -83,14 +83,14 @@ export default class EmailForm extends React.Component {
                     <label className="col-xs-4 col-sm-3">Content:</label>
                     <textarea
                         rows="5"
-                        className="col-sm-4"
+                        className="col-sm-7"
                         name="content"
                         value={this.state.content}
                         onChange={this.onChangeHandler}
                     />
                 </div>
                 <div className="row form-group">
-                    <input className="btn btn-primary" type="submit" value="Send email"/>
+                    <input className="btn btn-block" type="submit" value="Send email"/>
                 </div>
                 {this.state.errorMessage && <div className="error-message">{this.state.errorMessage}</div>}
             </form>
