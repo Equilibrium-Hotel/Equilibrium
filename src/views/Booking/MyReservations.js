@@ -51,7 +51,7 @@ export default class MyReservations extends React.Component {
     if(this.state.done) {
       return <div>
         <Link to="booking/reservation" className="btn btn-default" activeClassName="btn btn-default active">Make a new reservation</Link>
-        <h1>My Reservations</h1>
+        <h1 className="title-page col-xs-12">My Reservations</h1>
         <ReservationsList
           reservations={this.state.reservations.sort((x,y) => x.endDate < y.endDate)}
           handleCancel={this.handleCancel}

@@ -5,24 +5,40 @@ form {
     color: #333333;
 }
 
+.form-group {
+    margin: 0;
+}
+
+label {
+    float: none;
+    font-family: "Lato Light";
+}
+
 .form-control {
     border: 1px solid #dddddd;
     border-radius: 0;
+    width: 100%;
 }
 
-input.btn {
+input.btn.btn-block {
     background: #286090;
     color: white;
     border: none;
-    border-radius: 0;
+    border-radius: 0px;
     box-shadow: 0 0 5px #cccccc;
+    margin: auto;
+    margin-top: 2%;
+    width: 95%;
+    position: relative;
+    font-family: 'Julius Sans One', serif;
 }
 .title-page {
     font-family: 'Julius Sans One', serif;
     font-size: 2.5em;
+    padding: 2%;
 }
 
 .required {
     display: inline-block;
-    color: #47abff;
+    color: #286090;
 }

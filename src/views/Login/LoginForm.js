@@ -4,9 +4,9 @@ import '../../styles/LoginForm.css';
 export default class LoginForm extends React.Component {
     render() {
         return (
-            <form onSubmit={this.props.onSubmitHandler}>
+            <form onSubmit={this.props.onSubmitHandler} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                 <div className="form-group" >
-                    <label>Username:</label>
+                    <div><label>Username:</label></div>
                     <input
                         className="form-control"
                         type="text"

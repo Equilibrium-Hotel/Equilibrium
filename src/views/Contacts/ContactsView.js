@@ -78,7 +78,7 @@ export default class ContactsView extends React.Component {
 
         return (
             <div>
-                <h2>Contacts:</h2>
+                <h1 className="title-page col-xs-12">Contacts:</h1>
                 <div className="row contacts-wrapper">
                     <div className="contactus-element col-sm-3">
                         <Link to="/contacts/email" className="create-email">

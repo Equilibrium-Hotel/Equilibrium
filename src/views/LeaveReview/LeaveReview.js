@@ -73,8 +73,8 @@ export default class LeaveReview extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Leave a review</h1>
+            <div className="row">
+                <h1 className="title-page col-xs-12">Leave a review</h1>
                 <LeaveReviewForm
                     rating={this.state.name}
                     content={this.state.content}

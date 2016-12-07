@@ -53,21 +53,21 @@ export default class ReservationForm extends React.Component {
 
 
   render() {
-    return <form onSubmit={this.onSubmit}>
+    return <form onSubmit={this.onSubmit} className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       <div className={"form-group " + this.state.startInputFeedback.className}>
-        <label>Start Date</label>
-        <DatePicker className='form-control' onChange={this.onStartDateChange} selected={this.state.startDate}/>
-        <span className="help-block">{this.state.startInputFeedback.message}</span>
+        <div className="row"><label>Start Date</label></div>
+        <div className="row"><DatePicker className='form-control' onChange={this.onStartDateChange} selected={this.state.startDate}/>
+        <span className="help-block">{this.state.startInputFeedback.message}</span></div>
       </div>
 
       <div className="form-group">
-        <label>End Date</label>
-        <DatePicker className='form-control' onChange={this.onEndDateChange} selected={this.state.endDate}/>
+        <div className="row"><label>End Date</label></div>
+        <div className="row"><DatePicker className='form-control' onChange={this.onEndDateChange} selected={this.state.endDate}/></div>
       </div>
 
       <div className={"form-group " + this.state.roomInputFeedback.className}>
-        <label>Select a room: </label>
-        <select
+        <div className="row"><label>Select a room: </label></div>
+        <div className="row"><select
           className="form-control"
           name="room"
           value={this.state.selected}
@@ -76,9 +76,9 @@ export default class ReservationForm extends React.Component {
         >
           {this.props.freeRooms.map((x,i) => <option key={i} value={x}>{x}</option> )}
         </select>
-        <span className="help-block">{this.state.roomInputFeedback.message}</span>
+        <span className="help-block">{this.state.roomInputFeedback.message}</span></div>
       </div>
-      <input className="btn btn-default" type="submit" value="Submit" disabled={this.props.submitDisabled}/>
+      <input className="btn btn-block" type="submit" value="Submit" disabled={this.props.submitDisabled}/>
     </form>
   }
 }

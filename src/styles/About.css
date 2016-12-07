@@ -1,0 +1,15 @@
+#wrapper-about {
+    padding: 1% 10%;
+}
+
+p {
+    font-family: 'Julius Sans One', serif;
+}
+
+.picture {
+    border-radius: 50%;
+}
+
+.image-row {
+    margin: 3% !important;
+}
