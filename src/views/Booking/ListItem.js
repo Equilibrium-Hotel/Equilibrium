@@ -21,7 +21,7 @@ export default class ListItem extends React.Component {
     return (
       <div className="single-reservation row">
         <div className="row">
-          <div className="col-md-2 col-md-offset-3 reservation-info">From: <b>{this.props.startDate}</b></div>
+          <div className="col-md-2 col-md-offset-3 reservation-info">From: <br/><b>{this.props.startDate}</b></div>
           <div className="col-md-2 reservation-info">To: <br/> <b>{this.props.endDate}</b></div>
           <div className="col-md-2 reservation-info">Room Number: <br/> <b>{this.props.room}</b></div>
         </div>

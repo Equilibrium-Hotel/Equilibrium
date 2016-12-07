@@ -1,6 +1,7 @@
 import React, {  PropTypes } from "react";
 import pagiator from "paginator";
 import Page from "./Page";
+import '../styles/Pagination.css'
 
 export default class Pagination extends React.Component {
     static propTypes = {

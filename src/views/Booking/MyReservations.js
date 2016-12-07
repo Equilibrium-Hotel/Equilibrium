@@ -51,7 +51,7 @@ export default class MyReservations extends React.Component {
   render() {
     if(this.state.done) {
       return <div>
-        <Link to="booking/reservation" className="btn btn-default" activeClassName="btn btn-default active">Make a new reservation</Link>
+        <Link to="booking/reservation" className="btn btn-default edit-delete-btn" activeClassName="btn btn-default active">Make a new reservation</Link>
         <h1 className="title-page col-xs-12">My Reservations</h1>
         <div className="row">
           <ReservationsList

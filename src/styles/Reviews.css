@@ -5,22 +5,19 @@
 .review-content{
     text-align: left;
     margin: 5px;
+    color: black;
 }
 
 .review-info{
     text-align: right;
     border-right: 1px solid #CCC;
     margin: 5px;
+    color: #444444;
 }
 
 .btn-leave-review{
     text-align: center;
     margin: 1%;
-}
-
-.single-review:nth-child(odd){
-    background-color: #337ab7;
-    border-radius: 10px;
 }
 
 #checkbox {
@@ -68,11 +65,11 @@ textarea {
     margin:5px;
 }
 
-.single-reservation:nth-child(odd){
+.single-reservation:nth-child(odd), .single-review:nth-child(odd){
     /*background-color: #337ab7;*/
     background: linear-gradient(to right, rgb(250,250,250), rgb(200,200,255),rgb(250,250,250));
 }
 
-.reservation-info {
-    font-family: Lato;
+.reservation-info, .review-info, .review-content {
+    font-family: Lato !important;
 }
