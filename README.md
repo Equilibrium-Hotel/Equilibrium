@@ -1,6 +1,7 @@
 # Equilibrium
 
-A hotel web application built with React and Kinvey.
+A hotel web application built with React and Kinvey. <br>
+[Click here to see the live project](http://equilibrium.surge.sh/)
 
 Features:
 ---------
